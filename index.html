@@ -1,0 +1,1156 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UnpluggedPulse | Reclaim Your Mind From The Algorithm</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+            },
+            accent: {
+              cyan: '#06b6d4',
+              violet: '#8b5cf6',
+              amber: '#f59e0b',
+              rose: '#f43f5e'
+            },
+            slateDark: {
+              900: '#090d16',
+              850: '#0f172a',
+              800: '#1e293b',
+              700: '#334155'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Glassmorphism & Accents */
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(52, 211, 153, 0.4);
+      transform: translateY(-3px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.08) 35%, transparent 70%);
+    }
+    /* Custom Range styling */
+    input[type=range] {
+      accent-color: #10b981;
+    }
+  </style>
+</head>
+<body class="bg-[#070b12] text-slate-200 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen relative overflow-x-hidden">
+
+  <!-- Glow Background Decor -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] hero-glow pointer-events-none -z-10"></div>
+  <div class="fixed bottom-0 right-0 w-96 h-96 bg-accent-violet/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+
+  <!-- Notification Bar -->
+  <aside class="bg-gradient-to-r from-emerald-950/80 via-slate-900 to-emerald-950/80 border-b border-emerald-500/20 py-2 px-4 text-xs text-center text-emerald-300 font-medium">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+      <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 uppercase tracking-wider">Crisis Alert</span>
+      <span>The global average screen time hit <b>6 hrs 42 mins/day</b> in 2026. Join over 85,000+ mind re-architects today.</span>
+      <a href="#calculator" class="underline underline-offset-2 hover:text-white font-semibold transition ml-1">Take the Test &rarr;</a>
+    </div>
+  </aside>
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-50 glass-card border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-accent-cyan p-0.5 shadow-lg shadow-brand-500/20 group-hover:shadow-brand-500/40 transition duration-300">
+            <div class="w-full h-full bg-slateDark-900 rounded-[10px] flex items-center justify-center">
+              <i class="ph-bold ph-waveform text-xl text-brand-400"></i>
+            </div>
+          </div>
+          <div>
+            <div class="font-display font-bold text-xl tracking-tight text-white flex items-center gap-1">
+              Unplugged<span class="text-brand-400">Pulse</span>
+            </div>
+            <p class="text-[10px] text-slate-400 font-medium tracking-wide uppercase">Digital Autonomy Lab</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-1 font-medium text-sm text-slate-300">
+          <a href="#about" class="px-3 py-2 rounded-lg hover:text-brand-400 hover:bg-slate-800/50 transition">The Crisis</a>
+          <a href="#calculator" class="px-3 py-2 rounded-lg text-emerald-400 bg-emerald-500/10 font-semibold border border-emerald-500/20 hover:bg-emerald-500/20 transition">Diagnostic Tool</a>
+          <a href="#protocols" class="px-3 py-2 rounded-lg hover:text-brand-400 hover:bg-slate-800/50 transition">Protocols</a>
+          <a href="#tools" class="px-3 py-2 rounded-lg hover:text-brand-400 hover:bg-slate-800/50 transition">Blockers Matrix</a>
+          <a href="#challenge" class="px-3 py-2 rounded-lg hover:text-brand-400 hover:bg-slate-800/50 transition">7-Day Sprint</a>
+          <a href="#faq" class="px-3 py-2 rounded-lg hover:text-brand-400 hover:bg-slate-800/50 transition">FAQ</a>
+        </nav>
+
+        <!-- Right Action Button -->
+        <div class="hidden sm:flex items-center gap-4">
+          <a href="#calculator" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium rounded-xl group bg-gradient-to-br from-brand-400 via-emerald-500 to-accent-cyan shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 transition">
+            <span class="px-5 py-2.5 transition-all ease-in duration-75 bg-slateDark-900 rounded-[10px] group-hover:bg-transparent text-white font-semibold flex items-center gap-2">
+              <i class="ph-bold ph-lightning text-brand-400 group-hover:text-white transition"></i>
+              Start Free Detox
+            </span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="lg:hidden flex items-center">
+          <button id="mobileMenuBtn" aria-label="Toggle menu" class="p-2.5 rounded-xl bg-slate-800/60 text-slate-300 hover:text-white focus:outline-none">
+            <i class="ph-bold ph-list text-2xl" id="menuIcon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-800 bg-[#090d16] px-4 pt-3 pb-6 space-y-2">
+      <a href="#about" class="block px-3 py-2.5 rounded-lg text-slate-300 font-medium hover:bg-slate-800 mobile-nav-link">The Crisis</a>
+      <a href="#calculator" class="block px-3 py-2.5 rounded-lg text-emerald-400 font-semibold bg-emerald-500/10 mobile-nav-link">Burnout Calculator</a>
+      <a href="#protocols" class="block px-3 py-2.5 rounded-lg text-slate-300 font-medium hover:bg-slate-800 mobile-nav-link">3-Phase Protocols</a>
+      <a href="#tools" class="block px-3 py-2.5 rounded-lg text-slate-300 font-medium hover:bg-slate-800 mobile-nav-link">App Blockers Matrix</a>
+      <a href="#challenge" class="block px-3 py-2.5 rounded-lg text-slate-300 font-medium hover:bg-slate-800 mobile-nav-link">7-Day Sprint Checklist</a>
+      <a href="#faq" class="block px-3 py-2.5 rounded-lg text-slate-300 font-medium hover:bg-slate-800 mobile-nav-link">FAQ</a>
+      <a href="#calculator" class="mt-4 block text-center w-full py-3 bg-brand-500 text-slate-900 font-bold rounded-xl shadow-lg">Start Free Detox</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 lg:pt-24 lg:pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div class="max-w-5xl mx-auto text-center">
+        
+        <!-- Live Ticker Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-emerald-500/30 text-xs sm:text-sm text-slate-300 mb-8 animate-pulse">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+          <span>Live Ticker: Over <strong class="text-white font-mono" id="liveTickerCounter">3,492,810,400</strong> hours lost to doomscrolling today</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-6">
+          Reclaim Your Mind From <br class="hidden sm:inline" />
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">
+            The Algorithmic Cage.
+          </span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="max-w-3xl mx-auto text-lg sm:text-xl text-slate-300 leading-relaxed font-light mb-10">
+          The worldwide attention span has reduced by <span class="text-white font-semibold">47%</span> over the past decade. 
+          Stop burning out on notifications and dopamine micro-doses. Scientifically engineer intentional friction, recalibrate your focus, and take your life back.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+          <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-500 to-accent-cyan text-slate-950 font-bold text-base hover:opacity-95 shadow-xl shadow-brand-500/25 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+            <i class="ph-bold ph-calculator text-lg"></i>
+            Calculate My Burnout Score
+          </a>
+          <a href="#protocols" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-white font-semibold text-base hover:bg-slate-800 transition border border-slate-700 flex items-center justify-center gap-2">
+            Explore Free Protocols
+            <i class="ph-bold ph-arrow-down text-sm"></i>
+          </a>
+        </div>
+
+        <!-- Trust Metrics -->
+        <div class="mt-14 pt-8 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+          <div>
+            <div class="text-2xl sm:text-3xl font-display font-bold text-white">4.8B+</div>
+            <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Smartphone Users Active</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-display font-bold text-emerald-400">6.7 Hrs</div>
+            <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Avg. Daily Screentime</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-display font-bold text-accent-cyan">85,000+</div>
+            <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">People Reset on Pulse</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-display font-bold text-white">94%</div>
+            <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Reported Mental Clarity</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROBLEM STATS SECTION -->
+    <section id="about" class="py-20 bg-slateDark-900 border-y border-slate-800 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-brand-400 text-xs uppercase tracking-widest font-bold">The Silent Global Epidemic</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">
+            Engineered To Addict, Designed To Drain.
+          </h2>
+          <p class="text-slate-400 text-base mt-3">
+            Every notification triggers an artificial dopamine spike followed by a cortisol crash. You are not lacking willpower; you are competing with multi-billion-dollar cognitive algorithms.
+          </p>
+        </div>
+
+        <!-- 3 Problem Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <div class="glass-card p-8 rounded-2xl relative overflow-hidden border border-slate-800">
+            <div class="w-12 h-12 rounded-xl bg-accent-rose/10 text-accent-rose flex items-center justify-center text-2xl mb-6">
+              <i class="ph-bold ph-hourglass-simple-medium"></i>
+            </div>
+            <div class="text-4xl font-display font-extrabold text-white mb-2">24 Years</div>
+            <h3 class="text-lg font-semibold text-slate-200 mb-2">Spent Staring at Glass</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Based on the average 6.8 hours daily screen time across an average 80-year lifespan, humans now spend nearly a quarter-century immobilized looking at pixel arrays.
+            </p>
+          </div>
+
+          <div class="glass-card p-8 rounded-2xl relative overflow-hidden border border-slate-800">
+            <div class="w-12 h-12 rounded-xl bg-accent-amber/10 text-accent-amber flex items-center justify-center text-2xl mb-6">
+              <i class="ph-bold ph-bell-ringing"></i>
+            </div>
+            <div class="text-4xl font-display font-extrabold text-white mb-2">Every 4.2 Min</div>
+            <h3 class="text-lg font-semibold text-slate-200 mb-2">Attention Fragmentation</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Research shows it takes 23 minutes and 15 seconds to return to deep flow state after an interruption. Modern workers get interrupted every 4 to 8 minutes.
+            </p>
+          </div>
+
+          <div class="glass-card p-8 rounded-2xl relative overflow-hidden border border-slate-800">
+            <div class="w-12 h-12 rounded-xl bg-accent-violet/10 text-accent-violet flex items-center justify-center text-2xl mb-6">
+              <i class="ph-bold ph-moon-stars"></i>
+            </div>
+            <div class="text-4xl font-display font-extrabold text-white mb-2">68% Drop</div>
+            <h3 class="text-lg font-semibold text-slate-200 mb-2">Melatonin Suppression</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Blue light emission combined with late-night algorithm stimulation halts natural nocturnal melatonin production, leading to broken REM cycles and chronic fatigue.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE SCREEN TIME & BURNOUT CALCULATOR SECTION -->
+    <section id="calculator" class="py-24 px-4 sm:px-6 lg:px-8 relative">
+      <div class="max-w-5xl mx-auto">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-3">
+            <i class="ph-bold ph-shield-check"></i> 100% Client-Side & Private
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">
+            Digital Burnout & Screen Audit Calculator
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-2">
+            Calculate your actual lifetime hours wasted, cognitive burnout risk index, and receive a customized 3-step action roadmap.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Input Controls Form (7 Cols) -->
+          <div class="lg:col-span-7 glass-card p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-6 shadow-2xl">
+            
+            <!-- Slider 1: Phone Hours -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-sm font-semibold text-slate-200 flex items-center gap-2">
+                  <i class="ph-bold ph-device-mobile text-emerald-400"></i> Personal Phone Screentime (Daily)
+                </label>
+                <span class="text-emerald-400 font-mono font-bold text-lg" id="phoneHoursVal">5.0 hrs</span>
+              </div>
+              <input type="range" id="phoneHours" min="1" max="14" step="0.5" value="5" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[11px] text-slate-500 mt-1">
+                <span>1 hr (Minimal)</span>
+                <span>7 hrs (Average)</span>
+                <span>14 hrs (Extreme)</span>
+              </div>
+            </div>
+
+            <!-- Slider 2: Work/Laptop Hours -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-sm font-semibold text-slate-200 flex items-center gap-2">
+                  <i class="ph-bold ph-laptop text-cyan-400"></i> Work / PC / Tablet Screentime (Daily)
+                </label>
+                <span class="text-cyan-400 font-mono font-bold text-lg" id="workHoursVal">6.0 hrs</span>
+              </div>
+              <input type="range" id="workHours" min="0" max="14" step="0.5" value="6" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[11px] text-slate-500 mt-1">
+                <span>0 hrs (No PC)</span>
+                <span>6 hrs (Standard)</span>
+                <span>14 hrs (Overtime)</span>
+              </div>
+            </div>
+
+            <!-- Select: Notification Volume -->
+            <div>
+              <label class="block text-sm font-semibold text-slate-200 mb-2 flex items-center gap-2">
+                <i class="ph-bold ph-bell-simple-slash text-amber-400"></i> Daily Notifications Received
+              </label>
+              <select id="notifVolume" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-500">
+                <option value="low">Low (Under 30 per day - Silent mode)</option>
+                <option value="medium" selected>Moderate (30 - 90 per day - Regular apps)</option>
+                <option value="high">Heavy (90 - 200+ per day - High chatter)</option>
+                <option value="extreme">Obsessive (200+ notifications, watches, bells)</option>
+              </select>
+            </div>
+
+            <!-- Select: Phone checking in bed -->
+            <div>
+              <label class="block text-sm font-semibold text-slate-200 mb-2 flex items-center gap-2">
+                <i class="ph-bold ph-bed text-violet-400"></i> Evening & Bed Habit
+              </label>
+              <select id="bedHabit" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-500">
+                <option value="none">I leave phone in another room 1 hour before sleep</option>
+                <option value="moderate" selected>I scroll social media / videos 30 mins in bed</option>
+                <option value="heavy">I fall asleep with my phone in my hand / late scrolling</option>
+              </select>
+            </div>
+
+            <!-- Button -->
+            <button id="calcBtn" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-500 via-teal-500 to-cyan-500 text-slate-950 font-bold text-base hover:opacity-95 transition shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2">
+              <i class="ph-bold ph-cpu text-lg"></i>
+              Calculate Burnout Index & Plan
+            </button>
+
+          </div>
+
+          <!-- Dynamic Output Card (5 Cols) -->
+          <div class="lg:col-span-5 glass-card p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-2xl relative">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+              <div class="font-display font-bold text-white text-lg">Your Diagnostic Results</div>
+              <span id="riskBadge" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-500/20 text-rose-400 border border-rose-500/30">
+                High Risk
+              </span>
+            </div>
+
+            <!-- Annual Waste Gauge -->
+            <div class="space-y-4">
+              <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800">
+                <div class="text-xs text-slate-400 uppercase font-semibold">Annual Non-Work Screen Time</div>
+                <div class="text-3xl font-display font-extrabold text-white mt-1" id="annualHoursDisplay">1,825 Hours</div>
+                <div class="text-xs text-emerald-400 mt-1 flex items-center gap-1">
+                  <i class="ph-bold ph-calendar"></i> Equals <span id="daysLostDisplay" class="font-bold">76 full 24-hr days</span> lost per year!
+                </div>
+              </div>
+
+              <!-- Risk Score Meter -->
+              <div>
+                <div class="flex justify-between text-xs font-medium text-slate-300 mb-1">
+                  <span>Burnout Vulnerability Score</span>
+                  <span id="scorePercentage" class="font-bold text-emerald-400">78 / 100</span>
+                </div>
+                <div class="w-full bg-slate-800 h-3 rounded-full overflow-hidden p-0.5">
+                  <div id="riskBar" class="bg-gradient-to-r from-emerald-400 via-amber-400 to-rose-500 h-full rounded-full transition-all duration-700" style="width: 78%;"></div>
+                </div>
+              </div>
+
+              <!-- Recommendation Breakdown -->
+              <div class="pt-2">
+                <div class="text-xs text-slate-400 uppercase font-bold tracking-wider mb-3">Prescribed 3-Step Action Plan:</div>
+                <ul class="space-y-3 text-xs sm:text-sm text-slate-300" id="actionPlanList">
+                  <li class="flex items-start gap-2.5">
+                    <i class="ph-bold ph-check-circle text-emerald-400 text-base mt-0.5 shrink-0"></i>
+                    <span><strong>Switch to Grayscale:</strong> Immediately deactivate color stimuli on iOS/Android to curb mindless dopamine loops.</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <i class="ph-bold ph-check-circle text-emerald-400 text-base mt-0.5 shrink-0"></i>
+                    <span><strong>10-Meter Bed Rule:</strong> Plug your phone in the kitchen or hallway starting tonight at 9:30 PM.</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <i class="ph-bold ph-check-circle text-emerald-400 text-base mt-0.5 shrink-0"></i>
+                    <span><strong>Batch Notification Windows:</strong> Disable app banners and assign 12:30 PM and 5:30 PM as sole check times.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="pt-4">
+                <a href="#challenge" class="block text-center w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition border border-slate-700">
+                  Join 7-Day Sprint To Fix This &rarr;
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3-PHASE SOLUTION FRAMEWORK -->
+    <section id="protocols" class="py-20 bg-slateDark-900 border-t border-slate-800 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-brand-400 text-xs uppercase tracking-widest font-bold">Scientific Methodology</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">
+            The 3-Phase Neuro-Detox Framework
+          </h2>
+          <p class="text-slate-400 text-base mt-3">
+            Willpower fails against neuroscience. We engineer structural barriers between your subconscious impulsivity and your device.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Phase 1 -->
+          <div class="glass-card p-8 rounded-2xl border border-slate-800 flex flex-col justify-between glass-card-hover">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Phase 01</span>
+                <i class="ph-duotone ph-sliders text-3xl text-emerald-400"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Friction Engineering</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                Redesign your phone's architecture so opening an app requires cognitive effort instead of reflex.
+              </p>
+              <ul class="text-xs text-slate-400 space-y-2.5 mb-6">
+                <li class="flex items-center gap-2"><i class="ph-bold ph-arrow-right text-emerald-400"></i> Monochromatic Grayscale toggle</li>
+                <li class="flex items-center gap-2"><i class="ph-bold ph-arrow-right text-emerald-400"></i> Delete social apps; force browser access</li>
+                <li class="flex items-center gap-2"><i class="ph-bold ph-arrow-right text-emerald-400"></i> Remove all lockscreen badges & sounds</li>
+              </ul>
+            </div>
+            <div class="text-xs text-emerald-400/80 font-medium pt-4 border-t border-slate-800">
+              Goal: Cut unconscious pickups by 40%
+            </div>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="glass-card p-8 rounded-2xl border border-slate-800 flex flex-col justify-between glass-card-hover">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">Phase 02</span>
+                <i class="ph-duotone ph-airplane-tilt text-3xl text-cyan-400"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">48-Hr Analog Immersion</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                Execute a structured weekend zero-screen sanctuary to reset dopamine sensitivity and restore baseline calm.
+              </p>
+              <ul class="text-xs text-slate-400 space-y-2.5 mb-6">
+                <li class="flex items-center gap-2"><i class="ph-bold ph-arrow-right text-cyan-400"></i> Friday 8 PM to Sunday 5 PM phone drawer</li>
+                <li class="flex items-center gap-2"><i class="ph-bold ph-arrow-right text-cyan-400"></i> Replace with physical books & cookery</li>
+                <li class="flex items-center gap-2"><i class="ph-bold ph-arrow-right text-cyan-400"></i> Outdoor walking without headphones</li>
+              </ul>
+            </div>
+            <div class="text-xs text-cyan-400/80 font-medium pt-4 border-t border-slate-800">
+              Goal: Reset receptor sensitivity & anxiety
+            </div>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="glass-card p-8 rounded-2xl border border-slate-800 flex flex-col justify-between glass-card-hover">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs font-bold text-violet-400 bg-violet-500/10 px-3 py-1 rounded-full border border-violet-500/20">Phase 03</span>
+                <i class="ph-duotone ph-brain text-3xl text-violet-400"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Deep Work Architecture</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                Build strict professional barriers so work tech does not cannibalize personal peace and sleep cycles.
+              </p>
+              <ul class="text-xs text-slate-400 space-y-2.5 mb-6">
+                <li class="flex items-center gap-2"><i class="ph-bold ph-arrow-right text-violet-400"></i> 90-minute ultradian deep work blocks</li>
+                <li class="flex items-center gap-2"><i class="ph-bold ph-arrow-right text-violet-400"></i> Strict single-screen rule during calls</li>
+                <li class="flex items-center gap-2"><i class="ph-bold ph-arrow-right text-violet-400"></i> 8:00 PM definitive shutdown routine</li>
+              </ul>
+            </div>
+            <div class="text-xs text-violet-400/80 font-medium pt-4 border-t border-slate-800">
+              Goal: Sustainable productivity without burnout
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- APP BLOCKERS & TOOLS MATRIX (COMPARISON TABLE) -->
+    <section id="tools" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-400 text-xs uppercase tracking-widest font-bold">Tested & Curated</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">
+          The Curated Distraction Blocker Matrix
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">
+          Compare the world's highest-rated tools engineered to defeat digital compulsive behavior.
+        </p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-8" id="toolFilterGroup">
+        <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-brand-500 text-slate-950 transition active" data-filter="all">All Ecosystems</button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-filter="mobile">Mobile (iOS & Android)</button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-filter="desktop">Desktop (Mac & PC)</button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-filter="strict">Unbreakable Strict Mode</button>
+      </div>
+
+      <!-- Comparison Cards Table -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="toolsContainer">
+        
+        <!-- Tool 1: Opal -->
+        <div class="tool-card glass-card p-6 rounded-2xl border border-slate-800 flex flex-col justify-between" data-category="mobile strict">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 font-semibold border border-emerald-500/20">iOS / Android</span>
+              <div class="flex items-center text-amber-400 text-xs font-bold gap-1">
+                <i class="ph-fill ph-star"></i> 4.8
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Opal</h3>
+            <p class="text-xs text-brand-400 font-medium mb-3">Deep Focus & Screen Locking</p>
+            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+              Monitors and locks distracting apps with zero workarounds. Includes focus score and group sessions.
+            </p>
+            <div class="space-y-1.5 text-xs text-slate-400 mb-6">
+              <div class="flex items-center gap-1.5"><i class="ph-bold ph-check text-emerald-400"></i> Strict Unskippable Mode</div>
+              <div class="flex items-center gap-1.5"><i class="ph-bold ph-check text-emerald-400"></i> Focus Score tracking</div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-800">
+            <span class="text-xs font-bold text-white block mb-2">Free tier / Pro $9.99/mo</span>
+            <a href="https://www.opal.so" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-2 bg-slate-800 hover:bg-emerald-500 hover:text-slate-900 text-slate-200 text-xs font-bold rounded-lg transition">View Tool &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Tool 2: Freedom -->
+        <div class="tool-card glass-card p-6 rounded-2xl border border-slate-800 flex flex-col justify-between" data-category="mobile desktop strict">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-400 font-semibold border border-cyan-500/20">Cross-Platform</span>
+              <div class="flex items-center text-amber-400 text-xs font-bold gap-1">
+                <i class="ph-fill ph-star"></i> 4.7
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Freedom</h3>
+            <p class="text-xs text-cyan-400 font-medium mb-3">Cross-Device Synchronized Block</p>
+            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+              Blocks apps and websites across phone, tablet, and computer simultaneously so you cannot cheat on another screen.
+            </p>
+            <div class="space-y-1.5 text-xs text-slate-400 mb-6">
+              <div class="flex items-center gap-1.5"><i class="ph-bold ph-check text-emerald-400"></i> Syncs PC + Phone together</div>
+              <div class="flex items-center gap-1.5"><i class="ph-bold ph-check text-emerald-400"></i> Locked Mode schedule</div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-800">
+            <span class="text-xs font-bold text-white block mb-2">Free trial / $3.33/mo</span>
+            <a href="https://freedom.to" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-2 bg-slate-800 hover:bg-cyan-500 hover:text-slate-900 text-slate-200 text-xs font-bold rounded-lg transition">View Tool &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Tool 3: Cold Turkey -->
+        <div class="tool-card glass-card p-6 rounded-2xl border border-slate-800 flex flex-col justify-between" data-category="desktop strict">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs px-2.5 py-1 rounded-md bg-violet-500/10 text-violet-400 font-semibold border border-violet-500/20">Mac & Windows</span>
+              <div class="flex items-center text-amber-400 text-xs font-bold gap-1">
+                <i class="ph-fill ph-star"></i> 4.9
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Cold Turkey</h3>
+            <p class="text-xs text-violet-400 font-medium mb-3">Hardcore Desktop Lockout</p>
+            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+              The toughest website and application blocker on the market. Once locked, even restarting your PC cannot bypass it.
+            </p>
+            <div class="space-y-1.5 text-xs text-slate-400 mb-6">
+              <div class="flex items-center gap-1.5"><i class="ph-bold ph-check text-emerald-400"></i> Zero bypass guaranteed</div>
+              <div class="flex items-center gap-1.5"><i class="ph-bold ph-check text-emerald-400"></i> One-time lifetime license</div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-800">
+            <span class="text-xs font-bold text-white block mb-2">Free / $39 One-time</span>
+            <a href="https://getcoldturkey.com" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-2 bg-slate-800 hover:bg-violet-500 hover:text-slate-900 text-slate-200 text-xs font-bold rounded-lg transition">View Tool &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Tool 4: One Sec -->
+        <div class="tool-card glass-card p-6 rounded-2xl border border-slate-800 flex flex-col justify-between" data-category="mobile">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-400 font-semibold border border-amber-500/20">iOS & Android</span>
+              <div class="flex items-center text-amber-400 text-xs font-bold gap-1">
+                <i class="ph-fill ph-star"></i> 4.7
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">One Sec</h3>
+            <p class="text-xs text-amber-400 font-medium mb-3">Dopamine Delay Engine</p>
+            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+              Forces a full conscious breath before allowing Instagram, TikTok, or Twitter to load. Breaks autonomic triggers.
+            </p>
+            <div class="space-y-1.5 text-xs text-slate-400 mb-6">
+              <div class="flex items-center gap-1.5"><i class="ph-bold ph-check text-emerald-400"></i> Enforced breathing pause</div>
+              <div class="flex items-center gap-1.5"><i class="ph-bold ph-check text-emerald-400"></i> Science-backed friction</div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-800">
+            <span class="text-xs font-bold text-white block mb-2">Free / In-app options</span>
+            <a href="https://one-sec.app" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-2 bg-slate-800 hover:bg-amber-500 hover:text-slate-900 text-slate-200 text-xs font-bold rounded-lg transition">View Tool &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7-DAY DIGITAL RESET SPRINT CHECKLIST -->
+    <section id="challenge" class="py-20 bg-slateDark-900 border-t border-slate-800 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-brand-400 text-xs uppercase tracking-widest font-bold">Interactive Challenge</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">
+            The 7-Day Digital Reset Sprint
+          </h2>
+          <p class="text-slate-400 text-sm mt-2">
+            Check off each habit as you complete it. Your progress is saved automatically in your browser.
+          </p>
+          
+          <!-- Progress bar -->
+          <div class="mt-6">
+            <div class="flex justify-between text-xs font-semibold text-slate-300 mb-2">
+              <span>Sprint Completion</span>
+              <span id="challengePercent" class="text-emerald-400 font-bold font-mono">0% Completed</span>
+            </div>
+            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+              <div id="challengeProgressBar" class="h-full bg-gradient-to-r from-brand-500 to-accent-cyan w-0 transition-all duration-500"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-800 space-y-4" id="challengeList">
+          
+          <label class="flex items-start gap-4 p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800/60 border border-slate-800 cursor-pointer transition">
+            <input type="checkbox" class="sprint-check w-5 h-5 mt-1 accent-emerald-500 rounded cursor-pointer" data-day="1">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Day 1</span>
+                <span class="text-sm sm:text-base font-bold text-white">Monochrome Shift</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 mt-1">Convert your smartphone screen to grayscale in accessibility settings to eliminate color-reward loops.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-4 p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800/60 border border-slate-800 cursor-pointer transition">
+            <input type="checkbox" class="sprint-check w-5 h-5 mt-1 accent-emerald-500 rounded cursor-pointer" data-day="2">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Day 2</span>
+                <span class="text-sm sm:text-base font-bold text-white">The Bedroom Quarantine</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 mt-1">Charge your phone in the hallway or kitchen tonight. Wake up with a dedicated basic alarm clock instead.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-4 p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800/60 border border-slate-800 cursor-pointer transition">
+            <input type="checkbox" class="sprint-check w-5 h-5 mt-1 accent-emerald-500 rounded cursor-pointer" data-day="3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Day 3</span>
+                <span class="text-sm sm:text-base font-bold text-white">The 60-Minute Dawn Sanctuary</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 mt-1">Spend the first full hour of your day without looking at any digital screen. Stretch, hydrate, read, or think.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-4 p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800/60 border border-slate-800 cursor-pointer transition">
+            <input type="checkbox" class="sprint-check w-5 h-5 mt-1 accent-emerald-500 rounded cursor-pointer" data-day="4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Day 4</span>
+                <span class="text-sm sm:text-base font-bold text-white">The Notification Purge</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 mt-1">Turn off badges, vibrations, and banners for all apps except direct phone calls and emergency contacts.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-4 p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800/60 border border-slate-800 cursor-pointer transition">
+            <input type="checkbox" class="sprint-check w-5 h-5 mt-1 accent-emerald-500 rounded cursor-pointer" data-day="5">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Day 5</span>
+                <span class="text-sm sm:text-base font-bold text-white">Phone-Free Dining</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 mt-1">Eat breakfast, lunch, and dinner with zero screens in your field of vision. Experience the flavors consciously.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-4 p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800/60 border border-slate-800 cursor-pointer transition">
+            <input type="checkbox" class="sprint-check w-5 h-5 mt-1 accent-emerald-500 rounded cursor-pointer" data-day="6">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Day 6</span>
+                <span class="text-sm sm:text-base font-bold text-white">Silent Nature Immersion</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 mt-1">Take a 45-minute outdoor walk without music, podcasts, or carrying your phone. Notice what boredom feels like.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-4 p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800/60 border border-slate-800 cursor-pointer transition">
+            <input type="checkbox" class="sprint-check w-5 h-5 mt-1 accent-emerald-500 rounded cursor-pointer" data-day="7">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Day 7</span>
+                <span class="text-sm sm:text-base font-bold text-white">The Infinite Scroll Delete</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 mt-1">Delete social media apps from your phone. Relegate their use exclusively to desktop browsers when necessary.</p>
+            </div>
+          </label>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS / SUCCESS STORIES -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-400 text-xs uppercase tracking-widest font-bold">Real Reclamations</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">
+          From Chronic Brain Fog to Unshakable Clarity
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="glass-card p-8 rounded-2xl border border-slate-800">
+          <div class="flex items-center text-amber-400 text-sm mb-4 gap-1">
+            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          </div>
+          <p class="text-slate-300 text-sm italic mb-6 leading-relaxed">
+            "I was averaging 8.5 hours a day on my phone, mostly brainless short videos. Implementing Phase 1 grayscale and the bedroom rule gave me 3 hours back every single day. My chronic insomnia disappeared in 2 weeks."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">
+              AK
+            </div>
+            <div>
+              <div class="font-bold text-white text-sm">Arjun Kapoor</div>
+              <div class="text-xs text-slate-400">Software Architect, Bengaluru</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card p-8 rounded-2xl border border-slate-800">
+          <div class="flex items-center text-amber-400 text-sm mb-4 gap-1">
+            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          </div>
+          <p class="text-slate-300 text-sm italic mb-6 leading-relaxed">
+            "The 48-Hour Weekend Analog Reset felt terrifying at first. By Saturday evening, the twitch to check my pocket was gone. I finished two complete physical books and felt genuinely rested on Monday for the first time in years."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm">
+              SL
+            </div>
+            <div>
+              <div class="font-bold text-white text-sm">Sarah Lindqvist</div>
+              <div class="text-xs text-slate-400">Product Designer, Stockholm</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card p-8 rounded-2xl border border-slate-800">
+          <div class="flex items-center text-amber-400 text-sm mb-4 gap-1">
+            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          </div>
+          <p class="text-slate-300 text-sm italic mb-6 leading-relaxed">
+            "The Burnout Calculator was my wake-up call when it showed I was losing 82 full 24-hour days per year to meaningless feeds. This platform isn't about throwing your phone in a lake; it's about taking the steering wheel back."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-violet-500/20 text-violet-400 flex items-center justify-center font-bold text-sm">
+              MD
+            </div>
+            <div>
+              <div class="font-bold text-white text-sm">Marcus Davis</div>
+              <div class="text-xs text-slate-400">Founder & Author, San Francisco</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ ACCORDION SECTION -->
+    <section id="faq" class="py-20 bg-slateDark-900 border-t border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-brand-400 text-xs uppercase tracking-widest font-bold">Clarity & Science</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          
+          <div class="faq-item glass-card rounded-2xl border border-slate-800 overflow-hidden">
+            <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-semibold text-white focus:outline-none">
+              <span>Can I do a digital detox if my work requires me to be online all day?</span>
+              <i class="ph-bold ph-caret-down text-emerald-400 text-xl transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-800/40 pt-4">
+              Absolutely. UnpluggedPulse draws a strict distinction between <em>functional work</em> (writing code, responding to client tickets, design) and <em>parasitic dopamine consumption</em> (algorithmic video feeds, outrage bait, reflex refreshing). Our protocols focus on eradicating the compulsive non-work loops while improving professional focus through deep work sprints.
+            </div>
+          </div>
+
+          <div class="faq-item glass-card rounded-2xl border border-slate-800 overflow-hidden">
+            <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-semibold text-white focus:outline-none">
+              <span>Why does setting the screen to Grayscale work so effectively?</span>
+              <i class="ph-bold ph-caret-down text-emerald-400 text-xl transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-800/40 pt-4">
+              App designers specifically utilize saturated hyper-stimulant colors (bright red notification badges, saturated feed palettes) to exploit human ancestral instincts for ripe fruit and alerts. Grayscale instantly strips away the subconscious visual reward, turning Instagram or TikTok into dull static gray pages that your brain has little desire to endlessly browse.
+            </div>
+          </div>
+
+          <div class="faq-item glass-card rounded-2xl border border-slate-800 overflow-hidden">
+            <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-semibold text-white focus:outline-none">
+              <span>How long does it take for dopamine receptors to recalibrate?</span>
+              <i class="ph-bold ph-caret-down text-emerald-400 text-xl transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-800/40 pt-4">
+              Neuroscience literature indicates noticeable reductions in compulsive urge triggers within 48 to 72 hours of sensory restriction. A full recalibration of baseline dopamine sensitivity and cognitive presence typically settles between 14 to 21 days of structured environmental boundary maintenance.
+            </div>
+          </div>
+
+          <div class="faq-item glass-card rounded-2xl border border-slate-800 overflow-hidden">
+            <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-semibold text-white focus:outline-none">
+              <span>Is my Screen Time diagnostic data stored or shared?</span>
+              <i class="ph-bold ph-caret-down text-emerald-400 text-xl transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-800/40 pt-4">
+              Never. The UnpluggedPulse diagnostic calculator executes 100% on your device's browser using client-side JavaScript. No screen time logs, metrics, or personal data ever leave your machine.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEWSLETTER / DISPATCH CTA -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+      <div class="glass-card p-8 sm:p-14 rounded-3xl border border-emerald-500/30 text-center relative overflow-hidden shadow-2xl">
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-2xl mx-auto">
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Weekly Dopamine Dispatch</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">
+            Get 1 Actionable Detox Protocol Every Sunday
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base mb-8">
+            Join 85,000+ engineers, creators, and thinkers who receive our science-backed guides for high focus and deep calm. No spam, ever.
+          </p>
+
+          <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input type="email" required placeholder="Enter your best email..." class="flex-1 bg-slate-900 border border-slate-700 px-4 py-3.5 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400">
+            <button type="submit" class="px-6 py-3.5 bg-gradient-to-r from-brand-500 to-cyan-400 text-slate-950 font-bold text-sm rounded-xl hover:opacity-95 transition shadow-lg shadow-emerald-500/20 whitespace-nowrap">
+              Subscribe Free
+            </button>
+          </form>
+          <p id="newsletterMsg" class="hidden text-xs text-emerald-400 font-semibold mt-3">✓ Success! You are now subscribed to the weekly reset protocol.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#05080e] border-t border-slate-800/80 py-12 px-4 sm:px-6 lg:px-8 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+      
+      <!-- Brand -->
+      <div class="space-y-3">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-brand-500 flex items-center justify-center text-slate-900">
+            <i class="ph-bold ph-waveform text-base"></i>
+          </div>
+          <span class="font-display font-bold text-lg text-white">UnpluggedPulse</span>
+        </div>
+        <p class="text-slate-400 leading-relaxed">
+          The global open-source initiative dedicated to curing modern attention fragmentation and digital burnout.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h4 class="font-bold text-slate-300 uppercase tracking-wider mb-3">Diagnostic & Protocols</h4>
+        <ul class="space-y-2">
+          <li><a href="#calculator" class="hover:text-emerald-400 transition">Burnout Calculator</a></li>
+          <li><a href="#protocols" class="hover:text-emerald-400 transition">3-Phase Reset Guide</a></li>
+          <li><a href="#challenge" class="hover:text-emerald-400 transition">7-Day Sprint Challenge</a></li>
+          <li><a href="#tools" class="hover:text-emerald-400 transition">App Blocker Matrix</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-slate-300 uppercase tracking-wider mb-3">Scientific Research</h4>
+        <ul class="space-y-2">
+          <li><a href="#about" class="hover:text-emerald-400 transition">Melatonin Suppression Data</a></li>
+          <li><a href="#about" class="hover:text-emerald-400 transition">Cognitive Switching Penalty</a></li>
+          <li><a href="#about" class="hover:text-emerald-400 transition">Cortisol & Phone Pickups</a></li>
+          <li><a href="#faq" class="hover:text-emerald-400 transition">Peer-Reviewed Bibliography</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-slate-300 uppercase tracking-wider mb-3">Global Community</h4>
+        <p class="text-slate-400 mb-3">Questions or partnership inquiries? Reach our research team.</p>
+        <span class="text-emerald-400 font-mono">contact@unpluggedpulse.org</span>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>&copy; 2026 UnpluggedPulse Research Lab. Built for humanity's autonomy. All rights reserved.</div>
+      <div class="flex items-center gap-6">
+        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition">Client-Side Guarantee</a>
+        <a href="#" class="hover:text-white transition">Open Framework</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // --- 1. Live Global Hours Ticker ---
+    let liveCounter = 3492810400;
+    const tickerEl = document.getElementById('liveTickerCounter');
+    setInterval(() => {
+      // Increment ticker realistically (global population scrolling constantly)
+      liveCounter += Math.floor(Math.random() * 45) + 20;
+      if (tickerEl) {
+        tickerEl.textContent = Number(liveCounter).toLocaleString('en-US');
+      }
+    }, 1200);
+
+    // --- 2. Mobile Menu Toggle ---
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        if (mobileMenu.classList.contains('hidden')) {
+          menuIcon.className = 'ph-bold ph-list text-2xl';
+        } else {
+          menuIcon.className = 'ph-bold ph-x text-2xl';
+        }
+      });
+
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIcon.className = 'ph-bold ph-list text-2xl';
+        });
+      });
+    }
+
+    // --- 3. Interactive Burnout Diagnostic Calculator ---
+    const phoneSlider = document.getElementById('phoneHours');
+    const workSlider = document.getElementById('workHours');
+    const phoneHoursVal = document.getElementById('phoneHoursVal');
+    const workHoursVal = document.getElementById('workHoursVal');
+    const notifVolume = document.getElementById('notifVolume');
+    const bedHabit = document.getElementById('bedHabit');
+    const calcBtn = document.getElementById('calcBtn');
+
+    const riskBadge = document.getElementById('riskBadge');
+    const annualHoursDisplay = document.getElementById('annualHoursDisplay');
+    const daysLostDisplay = document.getElementById('daysLostDisplay');
+    const scorePercentage = document.getElementById('scorePercentage');
+    const riskBar = document.getElementById('riskBar');
+    const actionPlanList = document.getElementById('actionPlanList');
+
+    function updateSliderLabels() {
+      if (phoneHoursVal && phoneSlider) {
+        phoneHoursVal.textContent = parseFloat(phoneSlider.value).toFixed(1) + ' hrs';
+      }
+      if (workHoursVal && workSlider) {
+        workHoursVal.textContent = parseFloat(workSlider.value).toFixed(1) + ' hrs';
+      }
+    }
+
+    phoneSlider?.addEventListener('input', updateSliderLabels);
+    workSlider?.addEventListener('input', updateSliderLabels);
+
+    function runDiagnosticCalculation() {
+      const phoneHrs = parseFloat(phoneSlider.value) || 0;
+      const workHrs = parseFloat(workSlider.value) || 0;
+      const notifLevel = notifVolume.value;
+      const bedChoice = bedHabit.value;
+
+      // Annual non-work wasted screen calculation (based on 365 days)
+      const annualPhoneHours = Math.round(phoneHrs * 365);
+      const daysLostPerYear = (annualPhoneHours / 24).toFixed(0);
+
+      // Score logic: 0 to 100
+      let baseScore = (phoneHrs * 6) + (workHrs * 2.5);
+      
+      if (notifLevel === 'low') baseScore += 5;
+      else if (notifLevel === 'medium') baseScore += 15;
+      else if (notifLevel === 'high') baseScore += 25;
+      else if (notifLevel === 'extreme') baseScore += 35;
+
+      if (bedChoice === 'none') baseScore -= 10;
+      else if (bedChoice === 'moderate') baseScore += 10;
+      else if (bedChoice === 'heavy') baseScore += 20;
+
+      let score = Math.min(Math.max(Math.round(baseScore), 12), 99);
+
+      // Update UI displays
+      if (annualHoursDisplay) annualHoursDisplay.textContent = Number(annualPhoneHours).toLocaleString() + ' Hours';
+      if (daysLostDisplay) daysLostDisplay.textContent = daysLostPerYear + ' full 24-hr days';
+      if (scorePercentage) scorePercentage.textContent = score + ' / 100';
+      if (riskBar) riskBar.style.width = score + '%';
+
+      // Update badge and plans based on threshold
+      if (score < 45) {
+        riskBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+        riskBadge.textContent = 'Low Vulnerability';
+        actionPlanList.innerHTML = `
+          <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-emerald-400 text-base mt-0.5 shrink-0"></i><span><strong>Maintain Boundaries:</strong> Keep your morning routine phone-free to protect low baseline stress.</span></li>
+          <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-emerald-400 text-base mt-0.5 shrink-0"></i><span><strong>Periodic Digital Sabbath:</strong> Practice 24 hours offline once a month.</span></li>
+          <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-emerald-400 text-base mt-0.5 shrink-0"></i><span><strong>Curate Content Intentionally:</strong> Continue unsubscribing from clickbait triggers.</span></li>
+        `;
+      } else if (score < 75) {
+        riskBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/20 text-amber-400 border border-amber-500/30';
+        riskBadge.textContent = 'Moderate Vulnerability';
+        actionPlanList.innerHTML = `
+          <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-amber-400 text-base mt-0.5 shrink-0"></i><span><strong>Enact Grayscale Mode:</strong> Remove colors to destroy visual dopamine reward triggers.</span></li>
+          <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-amber-400 text-base mt-0.5 shrink-0"></i><span><strong>Ban Screen in Bed:</strong> Buy an analog alarm clock and plug the phone 10 meters away.</span></li>
+          <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-amber-400 text-base mt-0.5 shrink-0"></i><span><strong>Install One Sec or Opal:</strong> Enforce conscious friction before opening social media.</span></li>
+        `;
+      } else {
+        riskBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-500/20 text-rose-400 border border-rose-500/30';
+        riskBadge.textContent = 'Severe Burnout Risk';
+        actionPlanList.innerHTML = `
+          <li class="flex items-start gap-2.5"><i class="ph-bold ph-warning-circle text-rose-400 text-base mt-0.5 shrink-0"></i><span><strong>Emergency App Purge:</strong> Immediately delete algorithmic feeds (TikTok/Reels/X) for 7 consecutive days.</span></li>
+          <li class="flex items-start gap-2.5"><i class="ph-bold ph-warning-circle text-rose-400 text-base mt-0.5 shrink-0"></i><span><strong>Hardware Quarantine:</strong> Keep phone out of the bedroom strictly at 9:00 PM every night.</span></li>
+          <li class="flex items-start gap-2.5"><i class="ph-bold ph-warning-circle text-rose-400 text-base mt-0.5 shrink-0"></i><span><strong>Lockdown Blocker:</strong> Install Cold Turkey or Freedom with strict non-bypass mode active during work hours.</span></li>
+        `;
+      }
+    }
+
+    calcBtn?.addEventListener('click', runDiagnosticCalculation);
+
+    // --- 4. Tool Filter Buttons ---
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const toolCards = document.querySelectorAll('.tool-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-brand-500', 'text-slate-950');
+          b.classList.add('bg-slate-800', 'text-slate-300');
+        });
+        btn.classList.remove('bg-slate-800', 'text-slate-300');
+        btn.classList.add('bg-brand-500', 'text-slate-950');
+
+        const filterVal = btn.getAttribute('data-filter');
+
+        toolCards.forEach(card => {
+          const category = card.getAttribute('data-category') || '';
+          if (filterVal === 'all' || category.includes(filterVal)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // --- 5. 7-Day Sprint Checklist with LocalStorage ---
+    const checkboxes = document.querySelectorAll('.sprint-check');
+    const challengeProgressBar = document.getElementById('challengeProgressBar');
+    const challengePercent = document.getElementById('challengePercent');
+
+    function updateChallengeProgress() {
+      const total = checkboxes.length;
+      let checked = 0;
+      checkboxes.forEach((cb, idx) => {
+        if (cb.checked) {
+          checked++;
+          localStorage.setItem('unplugged_day_' + (idx + 1), 'true');
+        } else {
+          localStorage.removeItem('unplugged_day_' + (idx + 1));
+        }
+      });
+
+      const pct = Math.round((checked / total) * 100);
+      if (challengeProgressBar) challengeProgressBar.style.width = pct + '%';
+      if (challengePercent) challengePercent.textContent = pct + '% Completed (' + checked + '/' + total + ' Days)';
+    }
+
+    // Load saved checklist from localStorage
+    checkboxes.forEach((cb, idx) => {
+      const saved = localStorage.getItem('unplugged_day_' + (idx + 1));
+      if (saved === 'true') {
+        cb.checked = true;
+      }
+      cb.addEventListener('change', updateChallengeProgress);
+    });
+    updateChallengeProgress();
+
+    // --- 6. FAQ Accordion ---
+    const faqButtons = document.querySelectorAll('.faq-btn');
+    faqButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('.ph-caret-down');
+        const isOpen = !content.classList.contains('hidden');
+
+        // Close all
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-btn .ph-caret-down').forEach(i => i.classList.remove('rotate-180'));
+
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          if (icon) icon.classList.add('rotate-180');
+        }
+      });
+    });
+
+    // --- 7. Newsletter Form Handler ---
+    const newsletterForm = document.getElementById('newsletterForm');
+    const newsletterMsg = document.getElementById('newsletterMsg');
+    if (newsletterForm && newsletterMsg) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        newsletterMsg.classList.remove('hidden');
+        newsletterForm.reset();
+      });
+    }
+  </script>
+</body>
+</html>
+```
